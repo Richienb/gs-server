@@ -1,41 +1,106 @@
-# the-module [![Travis CI Build Status](https://img.shields.io/travis/com/Richienb/the-module/master.svg?style=for-the-badge)](https://travis-ci.com/Richienb/the-module)
+# gs-server [![Travis CI Build Status](https://img.shields.io/travis/com/Richienb/gs-server/master.svg?style=for-the-badge)](https://travis-ci.com/Richienb/gs-server)
 
-My awesome module.
+A fast and minimal web framework for Googlescript.
 
 ## Install
 
 Using [gs-require](https://github.com/Richienb/gs-require):
 
 ```js
-const theModule = require("the-module");
+const server = require("gs-server");
 ```
 
 ## Usage
 
 ```js
-const theModule = require("the-module");
+const server = require("gs-server");
 
-theModule("unicorns");
-//=> 'unicorns & rainbows'
+server.get((_, response) => {
+	return response.send("Hello World");
+});
 ```
 
 ## API
 
-### theModule(input, options?)
+### get(handler)
 
-#### input
+### post(handler)
 
-Type: `string`
+Handle `get` and `post` events.
 
-Lorem ipsum.
+#### handler(_request_, response)
 
-#### options
+##### query
 
 Type: `object`
 
-##### postfix
+The search parameters provided in the request.
+
+##### userAgent
+
+Type: `string`
+
+The client's user agent.
+
+##### data
+
+**Only exists for post**
+
+Type: `string`
+
+The posted data.
+
+##### mimeType
+
+**Only exists for post**
+
+Type: `string`
+
+The mime type of the posted data.
+
+#### handler(request, _response_)
+
+##### send(data, mimeType?)
+
+##### data
+
+Type: `string`
+
+The data to respond with.
+
+##### mimeType
 
 Type: `string`\
-Default: `rainbows`
+Default: `text/plain`
 
-Lorem ipsum.
+The mime type to respond with.
+
+##### html(data, values?)
+
+##### data
+
+Type: `string`
+
+The HTML data to send.
+
+##### values
+
+Type: `object`
+
+To use HTML templating, specify the values here.
+
+```js
+const server = require("gs-server");
+
+server.get((_, response) => {
+	return response.html("<?= foo ?>", { foo: "Hello World" });
+});
+```
+
+##### json(data)
+
+##### data
+
+Type: `object`
+
+The JSON data to respond with.

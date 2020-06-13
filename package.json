@@ -1,8 +1,8 @@
 {
-	"name": "the-module",
+	"name": "gs-server",
 	"version": "0.0.0",
-	"description": "My awesome module.",
-	"repository": "https://github.com/Richienb/the-module.git",
+	"description": "A fast and minimal web framework for Googlescript.",
+	"repository": "https://github.com/Richienb/gs-server.git",
 	"author": "Richie Bendall <richiebendall@gmail.com>",
 	"license": "MIT",
 	"main": "index.js",
@@ -10,12 +10,16 @@
 		"index.js"
 	],
 	"engines": {
-		"node": ">=10"
+		"node": ">=12"
 	},
 	"scripts": {
 		"test": "xo"
 	},
-	"keywords": [],
+	"keywords": [
+		"googlescript",
+		"server",
+		"http"
+	],
 	"dependencies": {},
 	"devDependencies": {
 		"eslint-config-richienb": "^0.4.2",
@@ -32,6 +36,9 @@
 		],
 		"env": [
 			"googleappsscript/googleappsscript"
+		],
+		"globals": [
+			"HTMLService"
 		]
 	}
 }
