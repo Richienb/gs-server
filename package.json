@@ -1,0 +1,37 @@
+{
+	"name": "the-module",
+	"version": "0.0.0",
+	"description": "My awesome module.",
+	"repository": "https://github.com/Richienb/the-module.git",
+	"author": "Richie Bendall <richiebendall@gmail.com>",
+	"license": "MIT",
+	"main": "index.js",
+	"files": [
+		"index.js"
+	],
+	"engines": {
+		"node": ">=10"
+	},
+	"scripts": {
+		"test": "xo"
+	},
+	"keywords": [],
+	"dependencies": {},
+	"devDependencies": {
+		"eslint-config-richienb": "^0.4.2",
+		"eslint-plugin-googleappsscript": "^1.0.3",
+		"xo": "^0.32.0"
+	},
+	"resolutions": {
+		"eslint": "^6.8.0"
+	},
+	"xo": {
+		"extends": "richienb",
+		"plugins": [
+			"googleappsscript"
+		],
+		"env": [
+			"googleappsscript/googleappsscript"
+		]
+	}
+}
